@@ -1,0 +1,195 @@
+﻿:root {
+  --bg: #f4f6f8;
+  --surface: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --line: #e5e7eb;
+  --accent: #0f766e;
+  --accent-strong: #115e59;
+  --danger: #b91c1c;
+  --danger-bg: #fef2f2;
+  --shadow: 0 8px 20px rgba(31, 41, 55, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(180deg, #f8fafc 0%, var(--bg) 100%);
+  color: var(--text);
+}
+
+.container {
+  width: min(900px, 92%);
+  margin: 2.5rem auto;
+  display: grid;
+  gap: 1rem;
+}
+
+.topo h1 {
+  margin: 0;
+  font-size: clamp(1.6rem, 2.5vw, 2rem);
+}
+
+.topo p {
+  margin: 0.4rem 0 0;
+  color: var(--muted);
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 1rem;
+}
+
+.card h2 {
+  margin: 0 0 1rem;
+  font-size: 1.1rem;
+}
+
+.form-grid {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.form-grid label {
+  font-size: 0.9rem;
+  color: #374151;
+}
+
+.form-grid input {
+  height: 2.6rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 0 0.75rem;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-grid input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.15);
+}
+
+#btn-adicionar {
+  margin-top: 0.4rem;
+  height: 2.7rem;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#btn-adicionar:hover {
+  background: var(--accent-strong);
+}
+
+.mensagem-erro {
+  min-height: 1.4rem;
+  margin: 0.8rem 0 0;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  background: var(--danger-bg);
+  color: var(--danger);
+  border: 1px solid #fecaca;
+  font-size: 0.9rem;
+}
+
+.mensagem-erro:empty {
+  display: none;
+}
+
+.tabela {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.linha {
+  display: grid;
+  grid-template-columns: 2fr 1fr 0.8fr 1fr 0.8fr;
+  gap: 0.6rem;
+  align-items: center;
+  padding: 0.8rem;
+}
+
+.cabecalho {
+  background: #f9fafb;
+  font-weight: 600;
+  border-bottom: 1px solid var(--line);
+}
+
+.corpo-tabela .linha {
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.corpo-tabela .linha:last-child {
+  border-bottom: none;
+}
+
+.linha.vazia {
+  grid-template-columns: 1fr;
+  color: var(--muted);
+}
+
+.btn-remover {
+  border: none;
+  border-radius: 7px;
+  height: 2rem;
+  padding: 0 0.6rem;
+  background: #fee2e2;
+  color: #991b1b;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.resumo-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.7rem 1rem;
+  align-items: center;
+}
+
+.resumo-grid p {
+  margin: 0;
+  color: #374151;
+}
+
+.resumo-grid strong {
+  font-size: 0.98rem;
+}
+
+.total-final-label {
+  padding-top: 0.4rem;
+  border-top: 1px dashed #d1d5db;
+}
+
+.total-final {
+  padding-top: 0.4rem;
+  border-top: 1px dashed #d1d5db;
+  font-size: 1.1rem;
+  color: #064e3b;
+}
+
+@media (max-width: 720px) {
+  .linha {
+    grid-template-columns: 1.3fr 1fr 0.8fr 1fr;
+  }
+
+  .cabecalho span:last-child,
+  .linha span:last-child,
+  .linha button {
+    grid-column: 1 / -1;
+  }
+}
